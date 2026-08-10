@@ -1,0 +1,13 @@
+name: First CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run hello world
+        run: echo "Hello GitHub Actions"
