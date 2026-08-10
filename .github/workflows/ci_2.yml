@@ -1,0 +1,21 @@
+name: First CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Main Job1 Test
+        run: echo "Main Job1 Test"
+      - name: Run Main  Job1 Test step 2
+        run: echo "Main  Job1 Test step 2"
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Main  Job2 Test
+        run: echo "Main  Job2 Test"
