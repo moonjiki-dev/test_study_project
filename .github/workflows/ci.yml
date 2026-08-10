@@ -6,10 +6,15 @@ on:
       - master
 
 jobs:
-  build:
+  job1:
     runs-on: ubuntu-latest
     steps:
-      - name: Run hello world
-        run: echo "Hello GitHub Actions"
-      - name: Run hello world 2
-        run: echo "Hello GitHub Actions 2"
+      - name: Run Job1 Test
+        run: echo "Job1 Test"
+      - name: Run Job1 Test step 2
+        run: echo "Job1 Test step 2"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Job2 Test
+        run: echo "Job2 Test"
