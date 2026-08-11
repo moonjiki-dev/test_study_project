@@ -15,7 +15,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.test_study_project"
+    namespace = "com.moonjiki.lab.test_study_project"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -29,7 +29,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.test_study_project"
+        applicationId = "com.moonjiki.lab.test_study_project"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
