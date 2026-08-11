@@ -30,11 +30,26 @@ jobs:
       - name: Verify test cases
         run: flutter test
 
-      - name: Build Android apk
-        run: flutter build apk
+      - name: Restore Android keystore
+        env:
+          KEYSTORE_FILE: ${{ secrets.KEYSTORE_FILE }}
+        run: |
+          echo "$KEYSTORE_FILE" | base64 --decode > android/upload-keystore.jks
 
-      - name: Upload APK
+      - name: Create key.properties
+        run: |
+          cat > android/key.properties <<EOF
+          storePassword=${{ secrets.KEYSTORE_PASSWORD }}
+          keyPassword=${{ secrets.KEY_PASSWORD }}
+          keyAlias=${{ secrets.KEY_ALIAS }}
+          storeFile=android/upload-keystore.jks
+          EOF
+
+      - name: Build Android App Bundle
+        run: flutter build appbundle
+
+      - name: Upload AAB
         uses: actions/upload-artifact@v4
         with:
-          name: android-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          name: android-aab
+          path: build/app/outputs/bundle/release/app-release.aab
