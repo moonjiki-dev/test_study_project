@@ -26,4 +26,6 @@ jobs:
 
       - name: Verify static analysis
         run: flutter analyze
-        continue-on-error: true
+
+      - name: Verify test cases
+        run: flutter test
