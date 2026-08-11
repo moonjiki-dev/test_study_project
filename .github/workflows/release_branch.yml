@@ -6,16 +6,17 @@ on:
       - release
 
 jobs:
-  job1:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Run Release Job1 Test
-        run: echo "Release Job1 Test"
-      - name: Run Release Job1 Test step 2
-        run: echo "Release Job1 Test step 2"
-  job2:
-    needs: job1
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run Release Job2 Test
-        run: echo "Release Job2 Test"
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Check Flutter
+        run: flutter --version
