@@ -6,7 +6,7 @@ on:
       - release
 
 jobs:
-  install_flutter_sdk:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,10 +21,8 @@ jobs:
       - name: Check Flutter
         run: flutter --version
 
-  build:
-    needs: install_flutter_sdk
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Get Pub dependencies
         run: flutter pub get
+
+      - name: Verify static analysis
+        run: flutter analyze
