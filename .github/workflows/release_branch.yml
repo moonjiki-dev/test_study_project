@@ -29,3 +29,6 @@ jobs:
 
       - name: Verify test cases
         run: flutter test
+
+      - name: Build Android apk
+        run: flutter build apk
