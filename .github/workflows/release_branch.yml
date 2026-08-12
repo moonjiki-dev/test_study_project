@@ -19,8 +19,17 @@ jobs:
           flutter-version-file: .fvmrc
           cache: true
 
+      - name: Install FVM and Melos
+        run: |
+          dart pub global activate fvm 4.1.2
+          dart pub global activate melos 8.2.2
+          echo "$HOME/.pub-cache/bin" >> "$GITHUB_PATH"
+
       - name: Check Flutter
         run: fvm flutter --version
+
+      - name: Check Melos
+        run: melos --version
 
       - name: Get Pub dependencies
         run: melos run get
