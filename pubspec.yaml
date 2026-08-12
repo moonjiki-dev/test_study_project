@@ -90,8 +90,6 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
 
-workspace:
-
 melos:
   scripts:
     flutter-version:
